@@ -1,6 +1,6 @@
-FROM resin/raspberrypi3-debian:latest
+FROM resin/raspberry-pi2-debian:latest
 
-#ENV NGINX_VERSION 1.2.1-2.2+wheezy3
+#ENV NGINX_VERSION 1.13.12
 
 # update and install nginx
 RUN apt-get update && \
