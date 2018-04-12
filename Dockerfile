@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi2-debian:latest
+FROM resin/armv7hf-debian
 
 #ENV NGINX_VERSION 1.13.12
 RUN [ "cross-build-start" ]
@@ -17,11 +17,12 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-RUN [ "cross-build-end" ]
 
 VOLUME ["/var/cache/nginx"]
 
 # Ports to be exposed
 EXPOSE 80 443
+
+RUN [ "cross-build-end" ]
 
 CMD ["nginx"]
