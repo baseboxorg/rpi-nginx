@@ -3,10 +3,8 @@ FROM resin/armv7hf-debian
 #ENV NGINX_VERSION 1.13.12
 RUN [ "cross-build-start" ]
 
-# update and install nginx
 RUN apt-get update && \
     apt-get install -y nginx
-    #=${NGINX_VERSION}
 
 # trim the original configuration for our little raspberry
 RUN sed -i "s/worker_processes 4;/worker_processes 2;/g" /etc/nginx/nginx.conf
